@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Werror -Wextra -pedantic -Wno-format
+CFLAGS=-Wall -Werror -Wextra -pedantic
 
 test: runtest
 

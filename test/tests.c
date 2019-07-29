@@ -60,6 +60,25 @@ START_TEST (ascii_chars_should_be_eq)
 }
 END_TEST
 
+START_TEST (percents_must_match)
+{
+	int p1_a = printf("%");
+	int p1_b = _printf("%");
+
+	ck_assert_int_eq(p1_a,p1_b);
+
+	int p2_a = printf("%%%%%");
+	int p2_b = _printf("%%%%%");
+
+	ck_assert_int_eq(p2_a,p2_b);
+
+	int p3_a = printf("estoy mamado%");
+	int p3_b = _printf("estoy mamado%");
+
+	ck_assert_int_eq(p3_a,p3_b);
+}
+END_TEST
+
 Suite * printf_suite(void)
 {
     Suite *s;
@@ -72,6 +91,7 @@ Suite * printf_suite(void)
 
     tcase_add_test(tc_core, string_must_have_eq_len);
     tcase_add_test(tc_core, ascii_chars_should_be_eq);
+    tcase_add_test(tc_core, percents_must_match);
     suite_add_tcase(s, tc_core);
 
     return s;

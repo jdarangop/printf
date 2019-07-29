@@ -29,6 +29,10 @@ int switch_fun(const char *format, va_list valist, ...)
 
 
 		tmp++;
+
+		if (*(tmp - 1) == '%' && *(tmp) == '\0')
+			return(-1);
+
 		i++;
 
 		while (*tmp == ' ')
