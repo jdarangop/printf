@@ -36,8 +36,8 @@ int switch_fun(const char *format, va_list valist, ...)
 			tmp++;
 		}
 
-		found_mandatory = check_mandatory(*tmp, valist, i);
-		found_advanced = check_advanced(*tmp, valist, i);
+		found_mandatory = check_mandatory(*tmp, valist);
+		found_advanced = check_advanced(*tmp, valist);
 
 		if (found_mandatory == 0 && found_advanced == 0)
 		{

@@ -8,7 +8,7 @@
   * Return: The i incremented.
   */
 
-int check_mandatory(char tmp, va_list valist, int i)
+int check_mandatory(char tmp, va_list valist)
 {
 	int c;
 	char *s;

@@ -13,7 +13,7 @@ void rev_string(char *s);
 char *rot13(char *arr);
 int switch_fun(const char *format, va_list valist, ...);
 int _printf(const char *format, ...);
-int check_mandatory(char tmp, va_list valist, int i);
-int check_advanced(char tmp, va_list valist, int i);
+int check_mandatory(char tmp, va_list valist);
+int check_advanced(char tmp, va_list valist);
 
 #endif /* HOLBERTON_H_ */
