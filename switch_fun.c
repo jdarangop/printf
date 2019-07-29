@@ -27,8 +27,14 @@ int switch_fun(const char *format, va_list valist, ...)
 			i++;
 		}
 
+
 		tmp++;
 		i++;
+
+		while (*tmp == ' ')
+		{
+			tmp++;
+		}
 
 		i = check_mandatory(*tmp, valist, i);
 		i = check_advanced(*tmp, valist, i);
