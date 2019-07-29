@@ -12,7 +12,7 @@
 int switch_fun(const char *format, va_list valist, ...)
 {
 	const char *tmp;
-	int i;
+	int i, found_mandatory, found_advanced;
 
 	for (tmp = format, i = 0; *tmp != '\0'; tmp++)
 	{
@@ -36,8 +36,17 @@ int switch_fun(const char *format, va_list valist, ...)
 			tmp++;
 		}
 
-		i = check_mandatory(*tmp, valist, i);
-		i = check_advanced(*tmp, valist, i);
+		found_mandatory = check_mandatory(*tmp, valist, i);
+		found_advanced = check_advanced(*tmp, valist, i);
+
+		if (found_mandatory == 0 && found_advanced == 0)
+		{
+			_putchar('%');
+			_putchar(*tmp);
+		}
+
+		if (*tmp == '\0')
+			break;
 	}
 	return (i);
 }

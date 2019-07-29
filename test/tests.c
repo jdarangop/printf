@@ -92,12 +92,16 @@ int main(void)
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
 
+    _printf("%%%%%");
+    putchar('\n');
+    printf("%%%%%");
+    putchar('\n');
     _printf("Prueba1: %       s hola\n", "Hey");
-    _printf("Prueba1: %       s hola\n", "Hey");
+    printf("Prueba1: %       s hola\n", "Hey");
+    _printf("Prueba2: hola%\n", "Hey", 2);
     printf("Prueba2: hola%\n", "Hey", 2);
-    printf("Prueba2: hola%\n", "Hey", 2);
-    _printf("Prueba: %&s hola\n", "Hey");
-    printf("Prueba: %&s hola\n", "Hey");
+    _printf("Prueba3: %&s hola\n", "Hey");
+    printf("Prueba3: %&s hola\n", "Hey");
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
     _printf("Negative:[%d]\n", -762534);

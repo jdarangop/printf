@@ -18,14 +18,14 @@ int check_mandatory(char tmp, va_list valist, int i)
 		case 'c':
 			c = va_arg(valist, int);
 			_putchar(c);
-			break;
+			return (1);
 		case 's':
 			s = va_arg(valist, char *);
 			_puts(s);
-			break;
+			return (1);
 		case '%':
 			_putchar('%');
-			break;
+			return (1);
 		case 'd': case 'i':
 			c = va_arg(valist, int);
 			if (c < 0)
@@ -34,13 +34,11 @@ int check_mandatory(char tmp, va_list valist, int i)
 				_putchar('-');
 			}
 			_puts(convert_uint(c, 10, 0));
-			break;
+			return (1);
 		case 'b':
 			c = va_arg(valist, unsigned long);
 			_puts(convert_ulong(c, 2, 0));
-			break;
-		default:
-			return (i);
+			return (1);
 	}
-	return (i);
+	return (0);
 }
