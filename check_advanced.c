@@ -7,7 +7,7 @@
   * Return: The i incremented.
   */
 
-int check_advanced(char tmp, va_list valist, int i)
+int check_advanced(char tmp, va_list valist)
 {
 	unsigned int c;
 	unsigned long ul;
