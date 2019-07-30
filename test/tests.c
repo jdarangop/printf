@@ -31,6 +31,116 @@
 #include <limits.h>
 #include "../holberton.h"
 
+START_TEST (preliminary_tests)
+{
+	int len_1_a = printf("Let's try to printf a simple sentence:\n");
+	printf("Len :[%d]\n", len_1_a);
+	int len_1_b = _printf("Let's try to printf a simple sentence:\n");
+	_printf("Len :[%d]\n", len_1_b);
+
+	ck_assert_int_eq(len_1_a, len_1_b);
+ 
+	int len_2_a = printf("'c': %c char 9999: %c:\n", 'c', 9999);
+	printf("Len :[%d]\n", len_2_a);
+	int len_2_b = _printf("'c': %c char 9999: %c:\n", 'c', 9999);
+	_printf("Len :[%d]\n", len_2_b);
+
+	ck_assert_int_eq(len_2_a, len_2_b);
+
+	int len_3_a = printf("'string': %s NULL: %s:\n", "string", NULL);
+	printf("Len :[%d]\n", len_3_a);
+	int len_3_b = _printf("'string': %s NULL: %s:\n", "string", NULL);
+	_printf("Len :[%d]\n", len_3_b);
+
+	ck_assert_int_eq(len_3_a, len_3_b);
+
+	int len_4_a = printf("percent: 1:%% 5:%%%%%, unknown directive: %y:\n");
+	printf("Len :[%d]\n", len_4_a);
+	int len_4_b = _printf("percent: 1:%% 5:%%%%%, unknown directive: %y:\n");
+	_printf("Len :[%d]\n", len_4_b);
+
+	ck_assert_int_eq(len_4_a, len_4_b);
+
+	int len_5_a = printf("spaces after %%: %     s, spaces with no directive:%        :\n", "string");
+	printf("Len :[%d]\n", len_5_a);
+	int len_5_b = _printf("spaces after %%: %     s, spaces with no directive:%        :\n", "string");
+	_printf("Len :[%d]\n", len_5_b);
+
+	ck_assert_int_eq(len_5_a, len_5_b);
+
+	int len_6_a = printf("escapes:  :quote:\" quote:'hi' backslash: \\ :\n");
+	printf("Len :[%d]\n", len_6_a);
+	int len_6_b = _printf("escapes:  :quote:\" quote:'hi' backslash: \\ :\n");
+	_printf("Len :[%d]\n", len_6_b);
+
+	ck_assert_int_eq(len_6_a, len_6_b);
+
+	int len_7_a = printf("integer: %d, max:%i, too large %i, char: %d, NULL: %d:\n", 1024, INT_MAX, 999999999999, 'c', NULL);
+	printf("Len :[%d]\n", len_7_a);
+	int len_7_b = _printf("integer: %d, max:%i, too large %i, char: %d, NULL: %d:\n", 1024, INT_MAX, 999999999999, 'c', NULL);
+	_printf("Len :[%d]\n", len_7_b);
+
+	ck_assert_int_eq(len_7_a, len_7_b);
+
+	int len_8_a = printf("hex: %x, max:%x, too large %X, char: %x, NULL: %X:\n", 31, UINT_MAX, 999999999999, 'c', NULL);
+	printf("Len :[%d]\n", len_8_a);
+	int len_8_b = _printf("hex: %x, max:%x, too large %X, char: %x, NULL: %X:\n", 31, UINT_MAX, 999999999999, 'c', NULL);
+	_printf("Len :[%d]\n", len_8_b);
+
+	ck_assert_int_eq(len_8_a, len_8_b);
+
+	int len_9_a = printf("oct: %o, max:%o, too large %o, char: %o, NULL: %o:\n", 31, UINT_MAX, 999999999999, 'c', NULL);
+	printf("Len :[%d]\n", len_9_a);
+	int len_9_b = _printf("oct: %o, max:%o, too large %o, char: %o, NULL: %o:\n", 31, UINT_MAX, 999999999999, 'c', NULL);
+	_printf("Len :[%d]\n", len_9_b);
+
+	ck_assert_int_eq(len_9_a, len_9_b);
+
+	int len_10_a = printf("unsigned: %u, max:%u, too large %u, char: %u, NULL: %u:\n", 4, UINT_MAX, 999999999999, 'c', NULL);
+	printf("Len :[%d]\n", len_10_a);
+	int len_10_b = _printf("unsigned: %u, max:%u, too large %u, char: %u, NULL: %u:\n", 4, UINT_MAX, 999999999999, 'c', NULL);
+	_printf("Len :[%d]\n", len_10_b);
+
+	ck_assert_int_eq(len_10_a, len_10_b);
+
+	int len_11_a = printf("String_Hex: %S, NULL: %S:\n", "Holberton\nSchool\t", NULL);
+	printf("Len :[%d]\n", len_11_a);
+	int len_11_b = _printf("String_Hex: %S, NULL: %S:\n", "Holberton\nSchool\t", NULL);
+	_printf("Len :[%d]\n", len_11_b);
+
+	ck_assert_int_eq(len_11_a, len_11_b);
+
+	int len_12_a = printf("pointer: %p, NULL: %p\n", &len_12_a, NULL);
+	printf("Len :[%d]\n", len_12_a);
+	int len_12_b = _printf("pointer: %p, NULL: %p\n", &len_12_b, NULL);
+	_printf("Len :[%d]\n", len_12_b);
+
+	ck_assert_int_eq(len_12_a, len_12_b);
+
+	int len_13_a = printf("reversed string: %r NULL: %r:\n", "Holberton", NULL);
+	printf("Len :[%d]\n", len_13_a);
+	int len_13_b = _printf("reversed string: %r NULL: %r:\n", "Holberton", NULL);
+	_printf("Len :[%d]\n", len_13_b);
+
+	ck_assert_int_eq(len_13_a, len_13_b);
+
+	int len_14_a = printf("rot13 string: %R NULL: %R:\n", "Holberton", NULL);
+	printf("Len :[%d]\n", len_14_a);
+	int len_14_b = _printf("rot13 string: %R NULL: %R:\n", "Holberton", NULL);
+	_printf("Len :[%d]\n", len_14_b);
+
+	ck_assert_int_eq(len_14_a, len_14_b);
+
+	int len_15_a = printf("give me binary or give me death: 2: %b, 0: %b, 4294967295: %b, 99999999999999: %b:\n", 2, 0, UINT_MAX, 99999999999999);
+	printf("Len :[%d]\n", len_15_a);
+	int len_15_b = _printf("give me binary or give me death: 2: %b, 0: %b, 4294967295: %b, 99999999999999: %b:\n", 2, 0, UINT_MAX, 99999999999999);
+	_printf("Len :[%d]\n", len_15_b);
+
+	ck_assert_int_eq(len_15_a, len_15_b);
+	
+}
+END_TEST
+
 START_TEST (string_must_have_eq_len)
 {
     int len = _printf("Let's try to printf a simple sentence.\n");
@@ -131,6 +241,7 @@ Suite * printf_suite(void)
     /* Core test case */
     tc_core = tcase_create("Core");
 
+    tcase_add_test(tc_core, preliminary_tests);
     tcase_add_test(tc_core, string_must_have_eq_len);
     tcase_add_test(tc_core, ascii_chars_should_be_eq);
     tcase_add_test(tc_core, percents_must_match);
@@ -154,11 +265,6 @@ int main(void)
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
 
-
-	int p6_a = _printf("%Zxcvb");
-	int p6_b = printf("%Zxcvb");
-
-	printf("\n %d , %d \n",p6_a,p6_b);
 
     _printf("%%%%%");
     putchar('\n');
@@ -206,5 +312,3 @@ int main(void)
 	srunner_free(sr);
 	return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
-
-
