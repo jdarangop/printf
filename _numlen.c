@@ -9,6 +9,11 @@ int _numlen(unsigned int i)
 {
 	int count = 0;
 
+	if (i == 0)
+	{
+		count++;
+	}
+
 	while (i != 0)
 	{
 		i = i / 10;
