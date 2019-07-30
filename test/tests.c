@@ -62,20 +62,62 @@ END_TEST
 
 START_TEST (percents_must_match)
 {
+	puts("\n Test 1: \% \n");
+
 	int p1_a = printf("%");
 	int p1_b = _printf("%");
 
 	ck_assert_int_eq(p1_a,p1_b);
+
+	puts("\n Test 2: %%%%%% \n");
 
 	int p2_a = printf("%%%%%");
 	int p2_b = _printf("%%%%%");
 
 	ck_assert_int_eq(p2_a,p2_b);
 
+	puts("\n Test 3: estoy mamado% \n");
+
 	int p3_a = printf("estoy mamado%");
 	int p3_b = _printf("estoy mamado%");
 
 	ck_assert_int_eq(p3_a,p3_b);
+
+	puts("\n Test 4: \\n% \n");
+
+	int p4_a = printf("\n%");
+	int p4_b = _printf("\n%");
+
+	ck_assert_int_eq(p4_a,p4_b);
+
+	puts("\n Test 5: %\\n% \n");
+
+	int p5_a = printf("%\n%");
+	int p5_b = _printf("%\n%");
+
+	ck_assert_int_eq(p5_a,p5_b);
+
+	puts("\n Test 6: %Zxcvb \n");
+
+	int p6_a = printf("%Zxcvb");
+	int p6_b = _printf("%Zxcvb");
+
+	ck_assert_int_eq(p6_a,p6_b);
+
+	puts("\n Test 7:\n");
+
+	int p7_a = printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+	int p7_b = _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+
+	ck_assert_int_eq(p7_a,p7_b);
+
+	puts("\n Test 8:\n");
+
+	int p8_a = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	int p8_b = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+
+	ck_assert_int_eq(p8_a,p8_b);
+
 }
 END_TEST
 
@@ -111,6 +153,12 @@ int main(void)
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
+
+
+	int p6_a = _printf("%Zxcvb");
+	int p6_b = printf("%Zxcvb");
+
+	printf("\n %d , %d \n",p6_a,p6_b);
 
     _printf("%%%%%");
     putchar('\n');

@@ -4,7 +4,6 @@
   * check_mandatory - Function to execute the switch.
   * @tmp: Character to compare.
   * @valist: List of arguments.
-  * @i: Counter.
   * Return: The i incremented.
   */
 

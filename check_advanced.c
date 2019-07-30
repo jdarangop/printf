@@ -3,7 +3,6 @@
   * check_advanced - Function to excecute the switch.
   * @tmp: Character to compare.
   * @valist: List of arguments.
-  * @i: Counter.
   * Return: The i incremented.
   */
 
