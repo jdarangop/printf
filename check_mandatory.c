@@ -4,6 +4,7 @@
   * check_mandatory - Function to execute the switch.
   * @tmp: Character to compare.
   * @valist: List of arguments.
+  * @count: Counter of bytes.
   * Return: The i incremented.
   */
 
@@ -21,6 +22,10 @@ int check_mandatory(char tmp, va_list valist, int *count)
 			return (1);
 		case 's':
 			s = va_arg(valist, char *);
+			if (!(s))
+			{
+				s = "(null)";
+			}
 			_puts(s);
 			*count += _strlen(s);
 			return (1);
