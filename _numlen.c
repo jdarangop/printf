@@ -2,7 +2,7 @@
 
 /**
   * _numlen - Return the len of a number.
-  * @num: The number.
+  * @i: The number.
   * Return: Lenght of a number.
   */
 int _numlen(int i)
