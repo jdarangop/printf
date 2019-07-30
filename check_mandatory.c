@@ -11,6 +11,7 @@
 int check_mandatory(char tmp, va_list valist, int *count)
 {
 	int c;
+	unsigned int c1;
 	char *s;
 
 	switch (tmp)
@@ -37,12 +38,16 @@ int check_mandatory(char tmp, va_list valist, int *count)
 			c = va_arg(valist, int);
 			if (c < 0)
 			{
-				c = -c;
+				c1 = -c;
 				_putchar('-');
 				*count += 1;
 			}
-			*count += _numlen(c);
-			_puts(convert_uint(c, 10, 0));
+			else
+			{
+				c1 = c;
+			}
+			*count += _numlen(c1);
+			_puts(convert_uint(c1, 10, 0));
 			return (1);
 		case 'b':
 			c = va_arg(valist, unsigned long);

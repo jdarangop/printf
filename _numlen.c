@@ -5,7 +5,7 @@
   * @i: The number.
   * Return: Lenght of a number.
   */
-int _numlen(int i)
+int _numlen(unsigned int i)
 {
 	int count = 0;
 
