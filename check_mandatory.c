@@ -39,7 +39,9 @@ int check_mandatory(char tmp, va_list valist, int *count)
 			{
 				c = -c;
 				_putchar('-');
+				*count += 1;
 			}
+			*count += _numlen(c);
 			_puts(convert_uint(c, 10, 0));
 			return (1);
 		case 'b':
