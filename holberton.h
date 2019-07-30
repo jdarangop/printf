@@ -14,7 +14,8 @@ char *rot13(char *arr);
 int switch_fun(const char *format, va_list valist, ...);
 int _printf(const char *format, ...);
 int check_mandatory(char tmp, va_list valist, int *count);
-int check_advanced(char tmp, va_list valist);
+int check_advanced(char tmp, va_list valist, int *count);
+int check_advanced2(char tmp, va_list valist, int *count);
 int _numlen(unsigned int i);
 
 #endif /* HOLBERTON_H_ */
