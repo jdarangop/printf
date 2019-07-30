@@ -43,15 +43,10 @@ int check_mandatory(char tmp, va_list valist, int *count)
 				*count += 1;
 			}
 			else
-			{
 				c1 = c;
-			}
+
 			*count += _numlen(c1);
 			_puts(convert_uint(c1, 10, 0));
-			return (1);
-		case 'b':
-			c = va_arg(valist, unsigned long);
-			_puts(convert_ulong(c, 2, 0));
 			return (1);
 	}
 	return (0);

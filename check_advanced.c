@@ -13,6 +13,10 @@ int check_advanced(char tmp, va_list valist)
 
 	switch (tmp)
 	{
+		case 'b':
+			c = va_arg(valist, unsigned long);
+			_puts(convert_ulong(c, 2, 0));
+			return (1);
 		case 'u':
 			c = va_arg(valist, unsigned int);
 			_puts(convert_uint(c, 10, 0));
