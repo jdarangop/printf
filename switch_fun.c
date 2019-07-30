@@ -19,22 +19,15 @@ int switch_fun(const char *format, va_list valist, ...)
 		while (*tmp != '%')
 		{
 			if (*tmp == '\0')
-			{
 				return (i);
-			}
 			_putchar(*tmp);
 			tmp++;
 			i++;
 		}
-
-
 		tmp++;
-
 		if (*(tmp - 1) == '%' && *(tmp) == '\0')
-			return(-1);
-
+			return (-1);
 		i++;
-
 		while (*tmp == ' ')
 		{
 			tmp++;
