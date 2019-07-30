@@ -7,7 +7,7 @@
   * Return: The i incremented.
   */
 
-int check_mandatory(char tmp, va_list valist)
+int check_mandatory(char tmp, va_list valist, int *count)
 {
 	int c;
 	char *s;
@@ -17,13 +17,16 @@ int check_mandatory(char tmp, va_list valist)
 		case 'c':
 			c = va_arg(valist, int);
 			_putchar(c);
+			*count += 1;
 			return (1);
 		case 's':
 			s = va_arg(valist, char *);
 			_puts(s);
+			*count += _strlen(s);
 			return (1);
 		case '%':
 			_putchar('%');
+			*count += 1;
 			return (1);
 		case 'd': case 'i':
 			c = va_arg(valist, int);

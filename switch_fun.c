@@ -27,19 +27,19 @@ int switch_fun(const char *format, va_list valist, ...)
 		if (*(tmp) == '%' && *(tmp + 1) == '\0')
 			return (-1);
 		tmp++;
-		i++;
 		while (*tmp == ' ')
 		{
 			tmp++;
 		}
 
-		found_mandatory = check_mandatory(*tmp, valist);
+		found_mandatory = check_mandatory(*tmp, valist, &i);
 		found_advanced = check_advanced(*tmp, valist);
 
 		if (found_mandatory == 0 && found_advanced == 0)
 		{
 			_putchar('%');
 			_putchar(*tmp);
+			i += 2;
 		}
 
 		if (*tmp == '\0')
