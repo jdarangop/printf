@@ -265,7 +265,10 @@ int main(void)
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
 
-
+    int p1 = _printf("%r\n","guasamayeta");
+    printf("P1: %d\n",p1);
+    int p2 = _printf("%R\n","juandiego");
+    printf("P2: %d\n",p2);
     _printf("%%%%%");
     putchar('\n');
     printf("%%%%%");
@@ -293,7 +296,7 @@ int main(void)
     _printf("Address:[%p]\n", addr);
     printf("Address:[%p]\n", addr);
     _printf("Binary:[%b]\n", 65535);
-    printf("Binary:[%b]\n", 65535);
+    //printf("Binary:[%b]\n", 65535);
 
     len = _printf("Percent:[%%]\n");
     len2 = printf("Percent:[%%]\n");
@@ -301,7 +304,7 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
+    //printf("Unknown:[%r]\n");
 
 	s = printf_suite();
 	sr = srunner_create(s);

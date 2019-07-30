@@ -11,6 +11,7 @@ int check_advanced2(char tmp, va_list valist, int *count)
 {
 	unsigned int c;
 	unsigned long ul;
+	char *chr, *out;
 
 	switch (tmp)
 	{
@@ -26,6 +27,22 @@ int check_advanced2(char tmp, va_list valist, int *count)
 			_puts(convert_ulong(ul, 16, 0));
 			*count += _strlen(convert_ulong(ul, 16, 0));
 			*count += 2;
+			return (1);
+		case 'r':
+			chr = va_arg(valist, char *);
+			if (!(chr))
+				chr = "";
+			out = rev_string(chr);
+			_puts(out);
+			*count += _strlen(out);
+			return (1);
+		case 'R':
+			chr = va_arg(valist, char *);
+			if (!(chr))
+				chr = "";
+			out = rot13(chr);
+			_puts(out);
+			*count += _strlen(out);
 			return (1);
 		case '\0':
 			return (1);
